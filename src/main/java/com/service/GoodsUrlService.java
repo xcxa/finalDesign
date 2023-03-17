@@ -2,16 +2,25 @@ package com.service;
 
 import com.domain.tablereflect.Goodsurl;
 
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
 public interface GoodsUrlService {
+
+
+
+
     /**
      * 保存商品图片链接信息
      * @param goodsurl
      * @return
      */
-    int saveGoodsUrl(Goodsurl goodsurl);
+
+
+    public int saveGoodsUrl(Goodsurl goodsurl);
+
+    String upload(InputStream inputStream, String orginalFileName);
 
     /**
      * 获取商品主要图片链接信息
