@@ -25,6 +25,8 @@ public interface GoodsService {
      */
     List<Goods> getMyGoods(String userId);
 
+
+
     /**
      * 获取商品介绍信息
      * @param goodsId

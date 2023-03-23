@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface GoodsUrlService {
 
-
+    String getGoodsIdByImgUrl(String imgUrl);
 
 
     /**

@@ -40,6 +40,8 @@ public class GoodsServiceImpl implements GoodsService {
         return goods;
     }
 
+
+
     @Override
     public Goods getGoodsDscrip(String goodsId) {
         return goodsDao.findOneById(goodsId);

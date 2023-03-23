@@ -13,6 +13,9 @@ public interface GoodsDao {
     @Insert("insert into goods values(#{userId},#{goodsId},#{dscrip},#{price},#{goodsLevel},#{upStatus},#{useStatus},#{hot},#{name})")
     int createGoods(Goods goods);
 
+    @Select("select goods")
+    int getGoodsByImgUrl(String imgUrl);
+
     /*修改功能*/
     //根据商品ID修改商品介绍信息
     @Update("update goods set dscrip = #{dscrip} where goods_id = #{goodsId}")

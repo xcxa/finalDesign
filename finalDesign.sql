@@ -150,13 +150,39 @@ CREATE TABLE `users` (
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-CREATE TABLE messages (
-                          message_id INT NOT NULL AUTO_INCREMENT,
-                          user_id VARCHAR(50) NOT NULL,
-                          message TEXT NOT NULL,
-                          goods_id VARCHAR(50) NOT NULL,
-                          PRIMARY KEY (message_id),
-                          FOREIGN KEY (user_id) REFERENCES users(user_id),
-                          FOREIGN KEY (goods_id) REFERENCES goods(goods_id)
-);
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : 47.120.6.85
+ Source Server Type    : MySQL
+ Source Server Version : 80032 (8.0.32)
+ Source Host           : 47.120.6.85:3306
+ Source Schema         : coursedesign
+
+ Target Server Type    : MySQL
+ Target Server Version : 80032 (8.0.32)
+ File Encoding         : 65001
+
+ Date: 22/03/2023 20:34:06
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for message
+-- ----------------------------
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message`  (
+                            `message_id` int NOT NULL AUTO_INCREMENT,
+                            `user_id` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+                            `message` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+                            `goods_id` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+                            `sender_id` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+                            `recipient_id` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+                            `created_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+                            PRIMARY KEY (`message_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = Dynamic;
+
+SET FOREIGN_KEY_CHECKS = 1;
 

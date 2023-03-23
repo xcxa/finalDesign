@@ -1,4 +1,18 @@
 spring:
+  jackson:
+    deserialization:
+      ACCEPT_SINGLE_VALUE_AS_ARRAY: true
+  cache:
+    type: redis  # 缓存设置为Redis类型
+  redis:  # 设置Redis连接信息
+    host: 47.120.6.85
+    port: 6379
+    jedis: # 设置Redis连接池
+      pool:
+        max-wait: 2000ms
+        min-idle: 2
+        max-idle: 8
+        max-active: 10
   datasource:
     url: jdbc:mysql://47.120.6.85:3306/coursedesign?characterEncoding=utf-8
     password: root
@@ -10,7 +24,9 @@ spring:
       max-request-size: 30MB
 server:
   port: 8083
-
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
 aliyun:

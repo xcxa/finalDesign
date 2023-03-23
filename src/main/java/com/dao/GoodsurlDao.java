@@ -33,4 +33,7 @@ public interface GoodsurlDao {
     //根据imgId查询单个图片信息
     @Select("select * from goodsurl where img_id = #{imgId}")
     Goodsurl findOneByUrlId(String imgId);
+    @Select("select goods_id from goodsurl where img_url = #{imgUrl}")
+    String getGoodsIdByImgUrl(String imgUrl);
+
 }

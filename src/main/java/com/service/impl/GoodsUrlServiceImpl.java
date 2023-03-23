@@ -23,6 +23,12 @@ public class GoodsUrlServiceImpl implements GoodsUrlService {
     @Autowired
     private OssProperties ossProperties;
 
+
+    @Override
+    public String getGoodsIdByImgUrl(String imgUrl) {
+        return goodsurlDao.getGoodsIdByImgUrl( imgUrl);
+    }
+
     @Override
     public int saveGoodsUrl(Goodsurl goodsurl) {
         return goodsurlDao.createGoodsurl(goodsurl);
