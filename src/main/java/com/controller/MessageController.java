@@ -2,6 +2,7 @@ package com.controller;
 
 import com.domain.Message;
 import com.domain.MessageDto;
+import com.service.GoodsService;
 import com.service.MessageService;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class MessageController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    GoodsService goodsService;
 
     @PostMapping("/send")
     @ResponseBody
@@ -43,4 +46,16 @@ public class MessageController {
 
         return messageService.getPages(userId, currentPage, pageSize);
     }
+
+    @GetMapping("/getInfoPage")
+    @ResponseBody
+    public Map getInfoPage(
+            @RequestParam("goodsId") String goodsId,
+            @RequestParam(value = "currentPage", defaultValue = "1") int currentPage,
+            @RequestParam(value = "pageSize", defaultValue = "10") int pageSize
+    ){
+        return messageService.getInfoPages(goodsId, currentPage, pageSize);
+    }
+
+
 }

@@ -92,5 +92,34 @@ public class MessageServiceImpl extends ServiceImpl<MessageDao,Message> implemen
         return message;
     }
 
+    @Override
+    public Map<String, Object> getInfoPages(String goodsId, int currentPage, int pageSize) {
+        // Calculate start index based on current page and page size
+        int startIndex = (currentPage - 1) * pageSize;
+
+        // Perform a query to get the total count of messages for the given goodsId
+        Long totalCount = query().eq("goods_id", goodsId).count();
+
+        // Query for a page of messages sorted by time in descending order
+        List<Message> list = query()
+                .eq("goods_id", goodsId)
+                .orderByDesc("created_time")
+                .last("LIMIT " + startIndex + ", " + pageSize)
+                .list();
+
+        // Calculate total page count based on total count and page size
+        int totalPages = (int) Math.ceil((double) totalCount / pageSize);
+
+        // Store the results in a map
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("data", list);
+        resultMap.put("currentPage", currentPage);
+        resultMap.put("pageSize", pageSize);
+        resultMap.put("total", totalCount);
+
+        return resultMap;
+    }
+
+
 }
 

@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.HashSet;
+
 @SpringBootTest
 class FinalDesignApplicationTests {
 
@@ -14,7 +16,12 @@ class FinalDesignApplicationTests {
     MessageDao messageDao;
     @Test
     void test1(){
-
+        HashSet<Integer> set = new HashSet<>();
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(4);
+        System.out.println(set);
     }
 
     @Test

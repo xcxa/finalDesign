@@ -15,7 +15,7 @@ spring:
         max-active: 10
   datasource:
     url: jdbc:mysql://47.120.6.85:3306/coursedesign?characterEncoding=utf-8
-    password: root
+    password: xcx666
     username: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   servlet:
@@ -24,9 +24,7 @@ spring:
       max-request-size: 30MB
 server:
   port: 8083
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
 
 
 aliyun:

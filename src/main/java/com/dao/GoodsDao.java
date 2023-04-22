@@ -63,6 +63,8 @@ public interface GoodsDao {
     //根据商品热度信息排序查询商品集合
     @Select("select * from goods where up_status = 1 and use_status = 1 order by hot desc LIMIT 12")
     List<Goods> findAllSortListByHot();
+
+
     //根据商品价格排序查询商品集合
     @Select("select * from goods where up_status = 1 and use_status = 1 order by price LIMIT 12")
     List<Goods> findAllSortListByPrice();
