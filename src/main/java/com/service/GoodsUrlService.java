@@ -22,6 +22,7 @@ public interface GoodsUrlService {
 
     String upload(InputStream inputStream, String orginalFileName);
 
+
     /**
      * 获取商品主要图片链接信息
      * @param goodsId

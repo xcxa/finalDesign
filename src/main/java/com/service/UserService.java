@@ -13,6 +13,7 @@ public interface UserService {
      */
     int register(User user);
 
+
     /**
      * 返回个人信息
      * @param userId
